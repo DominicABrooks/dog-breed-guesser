@@ -3,35 +3,55 @@
   <head>
     <meta charset="UTF-8" />
     <title>Guess the Dog Breed</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
       body {
         font-family: Arial, sans-serif;
         text-align: center;
-        padding: 20px;
+        padding: 10px;
         background: #fafafa;
       }
       img {
-        max-width: 400px;
+        max-width: 100%;
+        height: auto;
         border-radius: 12px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         margin-bottom: 20px;
       }
       input,
       button {
-        padding: 10px;
-        font-size: 1rem;
-        border-radius: 8px;
+        padding: 14px;
+        font-size: 1.1rem;
+        border-radius: 5px;
         border: 1px solid #ccc;
-        margin: 5px;
+        margin: 8px 0;
+        width: 80%;
+        box-sizing: border-box;
       }
       #feedback {
         font-weight: bold;
         margin-top: 15px;
       }
+      .dropdown-item {
+        font-size: 1.1rem;
+        padding: 14px;
+      }
+      @media (max-width: 500px) {
+        .streak {
+          font-size: 1rem !important;
+          top: 10px !important;
+          right: 10px !important;
+        }
+        div[style*="inline-block"] {
+          width: 100% !important;
+          max-width: 100% !important;
+        }
+      }
     </style>
   </head>
   <body>
     <div
+      class="streak"
       style="
         position: absolute;
         top: 20px;
@@ -78,8 +98,8 @@
         "
       ></div>
     </div>
-    <button onclick="checkGuess()">Guess</button>
     <div id="feedback"></div>
+    <button onclick="checkGuess()">Guess</button>
     <button onclick="nextDog()">Next Dog</button>
 
     <script>
